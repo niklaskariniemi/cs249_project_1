@@ -47,6 +47,7 @@ void initializeSetArray( int *intArray,
 {
     // initialize variables
     int index = 0, value = startVal;
+    int incrementTwo = 2, incrementOne = 1;
 
     // conduct processing
 
@@ -61,7 +62,7 @@ void initializeSetArray( int *intArray,
                 intArray[ index ] = value;
 
                 // create new even value
-                value += 2;
+                value += incrementTwo;
             }
             break;
         case ODD:
@@ -75,7 +76,7 @@ void initializeSetArray( int *intArray,
                 intArray[ index ] = value;
 
                 // create new odd value
-                value += 2;
+                value += incrementTwo;
             }
             break;
         case INCREMENTED:
@@ -86,7 +87,7 @@ void initializeSetArray( int *intArray,
                 intArray[ index ] = value;
 
                 // create new incremented value
-                value += 1;
+                value += incrementOne;
             }
             break;
         default:

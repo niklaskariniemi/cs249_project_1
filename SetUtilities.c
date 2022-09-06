@@ -28,11 +28,59 @@ void displaySet( const char *setName, const int *setArr, int setArrSize )
         printf( "\n\n" );
 }
 
+/*
+Name: findIntersection
+Process: finds the set intersection between two set arrays,
+         assigns to another array,
+         loop to find intersection must end when common value found
+Function Input/Parameters: sets one and two arrays (const int *),
+                           sets one and two array sizes (int)
+Function Output/Parameters: found intersection set array (int *)
+Function Output/Returned: size of found intersection set array (int)
+Device Input/---: none
+Device Output/---: none
+Dependencies: none
+*/
+
 int findIntersection( int *intersectArray, 
                              const int *oneArray, int oneArrSize, 
                                       const int *otherArray, int otherArrSize )
 {
-    return 0; // temp return
+    // initialize variables
+    int index, indexWhile = 0, indexIntersectionArray = 0, intersectArraySize;
+    int smallArraySize;
+
+    // conduct processing
+
+        // find smallest array
+        if ( oneArrSize > otherArrSize )
+        {
+            smallArraySize = otherArrSize;
+        }
+        else
+        {
+            smallArraySize = oneArrSize;
+        }
+
+        // loop through arrays
+        for ( index = 0; index < smallArraySize; index++ )
+        {
+            while ( oneArray[ indexWhile ] != otherArray[ indexWhile ] )
+            {
+                indexWhile++;
+            }
+    
+            if ( oneArray [ indexWhile ] == otherArray[ indexWhile ] )
+            {
+                intersectArray[ indexIntersectionArray ] = 
+                                                        oneArray [ indexWhile ];
+                indexIntersectionArray++;
+                intersectArraySize++;
+            }
+        }
+
+    // return size of intersection array
+    return intersectArraySize;
 }
 
 int findUnion( int *unionArray,

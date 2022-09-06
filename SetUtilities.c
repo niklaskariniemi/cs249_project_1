@@ -8,9 +8,36 @@ void copyArray( int *dest, const int *source, int sourceSize )
 
 }
 
+/*
+Name: displaySet
+Process: displays series of set values, or displays "Empty Set" if no values
+Function Input/Parameters: name of set array (const char *),
+                           set array (const int *, array size (int)
+Function Output/Parameters: none
+Function Output/Returned: none
+Device Input/---: none
+Device Output/monitor: data displayed as specified
+Dependencies: printf
+*/
+
 void displaySet( const char *setName, const int *setArr, int setArrSize )
 {
+    // initialize variables
+    int index;
 
+    // conduct processing
+
+        // display title
+        printf( "%s Set Data Display\n", setName );
+      
+        // loop through array and display
+        for ( index = 0; index <= setArrSize; index++)
+        {
+            printf(" %d,", setArr[ index ]);
+        }
+
+        // go to next line
+        printf( "\n" );
 }
 
 int findIntersection( int *intersectArray, 
@@ -41,35 +68,35 @@ void initializeSetArray( int *intArray,
         case EVEN:
             // create array with even values
             for ( index = 0; index <= numItems; index++)
-                {
-                    // add value to array
-                    intArray[ index ] = value;
+            {
+                // add value to array
+                intArray[ index ] = value;
 
-                    // create new even value
-                    value =+ 2;
-                }
+                // create new even value
+                value =+ 2;
+            }
             break;
         case ODD:
             // create array with odd values
             for ( index = 0; index <= numItems; index++)
-                {
-                    // add value to array
-                    intArray[ index ] = value;
+            {
+                // add value to array
+                intArray[ index ] = value;
 
-                    // create new odd value
-                    value =+ 2;
-                }
+                // create new odd value
+                value =+ 2;
+            }
             break;
         case INCREMENTED:
             // create array with incremented values
             for ( index = 0; index <= numItems; index++)
-                {
-                    // add value to array
-                    intArray[ index ] = value;
+            {
+                // add value to array
+                intArray[ index ] = value;
 
-                    // create new incremented value
-                    value =+ 1;
-                }
+                // create new incremented value
+                value =+ 1;
+            }
             break;
         default:
             break;

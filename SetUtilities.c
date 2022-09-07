@@ -8,18 +8,6 @@ void copyArray( int *dest, const int *source, int sourceSize )
 
 }
 
-/*
-Name: displaySet
-Process: displays series of set values, or displays "Empty Set" if no values
-Function Input/Parameters: name of set array (const char *),
-                           set array (const int *, array size (int)
-Function Output/Parameters: none
-Function Output/Returned: none
-Device Input/---: none
-Device Output/monitor: data displayed as specified
-Dependencies: printf
-*/
-
 void displaySet( const char *setName, const int *setArr, int setArrSize )
 {
     // initialize variables
@@ -71,11 +59,59 @@ int findIntersection( int *intersectArray,
     return intersectArraySize;
 }
 
+/*
+Name: findUnion
+Process: finds the set union between two set arrays,
+         assigns to another array,
+         loop to find union must end when common value found
+Function Input/Parameters: sets one and two arrays (const int *),
+                           sets one and two array sizes (int)
+Function Output/Parameters: none
+Function Output/Returned: size of found intersection set array (int)
+Device Input/---: none
+Device Output/---: none
+Dependencies: none
+*/
+
 int findUnion( int *unionArray,
                              const int *oneArray, int oneArrSize, 
                                       const int *otherArray, int otherArrSize )
 {
-    return 0; // temp return
+    // initialize variables
+    int indexOne, indexTwo, indexThree;
+    int indexTemp = 0, unionArraySize = oneArrSize;
+    int tempArr[ MAX_SET_CAPACITY ];
+
+    // conduct processing
+
+        // loop through and find common values then remove
+        for ( indexOne = 0; indexOne < oneArrSize; indexOne++ )
+        {
+            // place frst array into new array
+            unionArray[ indexOne ] = oneArray[ indexOne ];
+
+            for ( indexTwo = 0; indexTwo < otherArrSize; indexTwo++ )
+            {
+                if ( oneArray[ indexOne ] != otherArray[ indexTwo ])
+                {
+                    // place into temp array
+                    tempArr[ indexTemp ] = oneArray[ indexOne ];
+                    indexTemp++;
+                    unionArraySize++;
+                }
+
+            }
+        }
+
+        // add temp array into union array
+        for ( indexThree = oneArrSize; indexThree < unionArraySize; 
+                                                                  indexThree++ )
+        {
+            unionArray[ indexThree ] = tempArr[ indexThree ];
+        }
+
+    // return size of array
+    return unionArraySize;
 }
 
 void initializeSetArray( int *intArray, 

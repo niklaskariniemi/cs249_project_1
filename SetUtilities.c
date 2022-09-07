@@ -47,35 +47,18 @@ int findIntersection( int *intersectArray,
                                       const int *otherArray, int otherArrSize )
 {
     // initialize variables
-    int index, indexWhile = 0, indexIntersectionArray = 0, intersectArraySize;
-    int smallArraySize;
+    int indexOne, indexTwo, intersectArraySize = 0;
 
     // conduct processing
-
-        // find smallest array
-        if ( oneArrSize > otherArrSize )
+    for ( indexOne = 0; indexOne < oneArrSize; indexOne++ )
         {
-            smallArraySize = otherArrSize;
-        }
-        else
-        {
-            smallArraySize = oneArrSize;
-        }
-
-        // loop through arrays
-        for ( index = 0; index < smallArraySize; index++ )
-        {
-            while ( oneArray[ indexWhile ] != otherArray[ indexWhile ] )
+        for ( indexTwo = 0; indexTwo < otherArrSize; indexTwo++ )
             {
-                indexWhile++;
-            }
-    
-            if ( oneArray [ indexWhile ] == otherArray[ indexWhile ] )
-            {
-                intersectArray[ indexIntersectionArray ] = 
-                                                        oneArray [ indexWhile ];
-                indexIntersectionArray++;
-                intersectArraySize++;
+            if ( oneArray[ indexOne ] == otherArray[ indexTwo ])
+                {
+                    intersectArray[ intersectArraySize ] = oneArray[ indexOne ];
+                    intersectArraySize++;
+                }
             }
         }
 

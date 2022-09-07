@@ -47,7 +47,15 @@ void displaySet( const char *setName, const int *setArr, int setArrSize )
         // loop through array and display
         for ( index = 0; index < setArrSize; index++)
         {
-            printf(" %d,", setArr[ index ]);
+            // check if last element in array
+            if ( index == setArrSize - 1 )
+            {
+                printf(" %d", setArr[ index ]);
+            }
+            else
+            {
+                printf(" %d,", setArr[ index ]);
+            }
             
         }
 

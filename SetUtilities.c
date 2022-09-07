@@ -196,7 +196,7 @@ bool isInSet( const int *setArray, int size, int searchVal )
             if ( setArray[ index ] == searchVal )
             {
                 testResult = true;
-                break;
+                index = size;
             }
             else
             {

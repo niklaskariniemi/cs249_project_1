@@ -3,9 +3,29 @@
 
 // function implementations 
 
+/*
+Name: copyArray
+Process: copies one array into other, uses source size
+Function Input/Parameters: source array (const int *), source array size (int)                         
+Function Output/Parameters: destination array (int *)
+Function Output/Returned: none
+Device Input/---: none
+Device Output/---: none
+Dependencies: none
+*/
+
 void copyArray( int *dest, const int *source, int sourceSize )
 {
+    // initialize variables
+    int index;
 
+    // conduct processing
+        
+        // loop through source array
+        for ( index = 0; index < sourceSize; index++ )
+        {
+            dest[ index ] = source[ index ];
+        }
 }
 
 void displaySet( const char *setName, const int *setArr, int setArrSize )

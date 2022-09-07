@@ -8,6 +8,18 @@ void copyArray( int *dest, const int *source, int sourceSize )
 
 }
 
+/*
+Name: displaySet
+Process: displays series of set values, or displays "Empty Set" if no values
+Function Input/Parameters: name of set array (const char *),
+                           set array (const int *, array size (int)
+Function Output/Parameters: none
+Function Output/Returned: none
+Device Input/---: none
+Device Output/monitor: data displayed as specified
+Dependencies: printf
+*/
+
 void displaySet( const char *setName, const int *setArr, int setArrSize )
 {
     // initialize variables
@@ -17,30 +29,23 @@ void displaySet( const char *setName, const int *setArr, int setArrSize )
 
         // display title
         printf( "%s Set Data Display\n", setName );
+
+        // check if array empty
+        if ( setArrSize < 1 )
+            {
+                printf( "  Empty Set  " );
+            }
       
         // loop through array and display
         for ( index = 0; index < setArrSize; index++)
         {
             printf(" %d,", setArr[ index ]);
+            
         }
 
         // go to next line
         printf( "\n\n" );
 }
-
-/*
-Name: findIntersection
-Process: finds the set intersection between two set arrays,
-         assigns to another array,
-         loop to find intersection must end when common value found
-Function Input/Parameters: sets one and two arrays (const int *),
-                           sets one and two array sizes (int)
-Function Output/Parameters: found intersection set array (int *)
-Function Output/Returned: size of found intersection set array (int)
-Device Input/---: none
-Device Output/---: none
-Dependencies: none
-*/
 
 int findIntersection( int *intersectArray, 
                              const int *oneArray, int oneArrSize, 
@@ -51,16 +56,16 @@ int findIntersection( int *intersectArray,
 
     // conduct processing
     for ( indexOne = 0; indexOne < oneArrSize; indexOne++ )
-        {
+    {
         for ( indexTwo = 0; indexTwo < otherArrSize; indexTwo++ )
-            {
+        {
             if ( oneArray[ indexOne ] == otherArray[ indexTwo ])
-                {
-                    intersectArray[ intersectArraySize ] = oneArray[ indexOne ];
-                    intersectArraySize++;
-                }
+            {
+                intersectArray[ intersectArraySize ] = oneArray[ indexOne ];
+                intersectArraySize++;
             }
         }
+    }
 
     // return size of intersection array
     return intersectArraySize;

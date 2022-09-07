@@ -59,20 +59,6 @@ int findIntersection( int *intersectArray,
     return intersectArraySize;
 }
 
-/*
-Name: findUnion
-Process: finds the set union between two set arrays,
-         assigns to another array,
-         loop to find union must end when common value found
-Function Input/Parameters: sets one and two arrays (const int *),
-                           sets one and two array sizes (int)
-Function Output/Parameters: none
-Function Output/Returned: size of found intersection set array (int)
-Device Input/---: none
-Device Output/---: none
-Dependencies: none
-*/
-
 int findUnion( int *unionArray,
                              const int *oneArray, int oneArrSize, 
                                       const int *otherArray, int otherArrSize )
@@ -172,8 +158,51 @@ bool isInSet( const int *setArray, int size, int searchVal )
     return true; //temp return
 }
 
+/*
+Name: isSubsetOf
+Process: compares two set arrays to find if one is a subset of the other,
+         returns Boolean result of test,
+         loop to find subset item must end when common value found
+         and function must return false as soon as a subset value is not found
+Function Input/Parameters: two set arrays (const int *),
+                           sizes of each set array (int)
+Function Output/Parameters: none
+Function Output/Returned: Boolean result of test, as specified
+Device Input/---: none
+Device Output/---: none
+Dependencies: none
+*/
+
 bool isSubSetOf( const int *oneSet, int oneSetArrSize, 
                           const int *psbleSubset, int psbleSubsetArrSize )
 {
-    return true; //temp return
+    // initialize variables
+    int indexOne, indexTwo, testResultValue = 0;
+
+    // conduct processing
+
+        // loop through first array
+        for ( indexOne = 0; indexOne < oneSetArrSize; indexOne++ )
+        {
+            // look through second array
+            for ( indexTwo = 0; indexTwo < psbleSubsetArrSize; indexTwo++ )
+            {
+                // check if value the same
+                if ( oneSet[ indexOne ] == psbleSubset[ indexTwo ] )
+                {
+                    testResultValue++;
+                }
+            }
+        }
+
+        // check if all values in set
+        if ( testResultValue == psbleSubsetArrSize )
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
 }

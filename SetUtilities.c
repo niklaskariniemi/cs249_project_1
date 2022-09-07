@@ -155,23 +155,30 @@ void initializeSetArray( int *intArray,
 
 bool isInSet( const int *setArray, int size, int searchVal )
 {
-    return true; //temp return
-}
+    // initialize variables
+    int index;
+    bool testResult;
 
-/*
-Name: isSubsetOf
-Process: compares two set arrays to find if one is a subset of the other,
-         returns Boolean result of test,
-         loop to find subset item must end when common value found
-         and function must return false as soon as a subset value is not found
-Function Input/Parameters: two set arrays (const int *),
-                           sizes of each set array (int)
-Function Output/Parameters: none
-Function Output/Returned: Boolean result of test, as specified
-Device Input/---: none
-Device Output/---: none
-Dependencies: none
-*/
+    // conduct processing
+
+        // loop through array
+        for ( index = 0; index < size; index++ )
+        {
+            // check if value in array
+            if ( setArray[ index ] == searchVal )
+            {
+                testResult = true;
+                break;
+            }
+            else
+            {
+                testResult =  false;
+            }
+        }
+
+    // return test result
+    return testResult;
+}
 
 bool isSubSetOf( const int *oneSet, int oneSetArrSize, 
                           const int *psbleSubset, int psbleSubsetArrSize )
